@@ -24,4 +24,8 @@ public class AccountService {
     public boolean checkUsernameAvailability(String username){
         return accountDAO.isUsernameAvailable(username);
     }
+
+    public Account verifyAccountLogin(Account account){
+        return accountDAO.verifyLogin(account.getUsername(), account.getPassword());
+    }
 }
