@@ -43,10 +43,10 @@ public class SocialMediaController {
     }
 
     private void registerHandler(Context ctx) throws JsonProcessingException{
+        
         ObjectMapper mapper = new ObjectMapper();
         Account account = mapper.readValue(ctx.body(), Account.class);
 
-        
         Account addedAccount = accountService.addAccount(account);
         if(addedAccount != null){
             ctx.json(mapper.writeValueAsString(addedAccount)).status(200);
@@ -54,7 +54,7 @@ public class SocialMediaController {
         else{
             ctx.status(400);
         }
-    }
 
+    }
 
 }
